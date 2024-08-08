@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import './ChatWindow.css';
 
 const ChatWindow = () => {
-    const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([
-        { text: 'Chatbot: Merhaba, size nasıl yardımcı olabilirim?', type: 'bot' }
+        { text: "Merhaba, size nasıl yardımcı olabilirim?", sender: "bot" },
+        
     ]);
+    const [input, setInput] = useState("");
 
-    const handleSendMessage = () => {
-        if (message.trim()) {
-            setMessages([...messages, { text: `Kullanıcı: ${message}`, type: 'user' }, { text: 'Chatbot: merhaba', type: 'bot' }]);
-            setMessage(''); // Mesaj kutusunu temizle
+    const handleSend = () => {
+        if (input.trim()) {
+            setMessages([...messages, { text: input, sender: "user" }]);
+            setInput(""); // input alanını temizle
+
+            // Chatbot cevabı
+            setTimeout(() => {
+                setMessages([...messages, { text: input, sender: "user" }, { text: "merhaba", sender: "bot" }]);
+            }, 500); // 500 ms sonra cevap göster
         }
     };
 
@@ -18,19 +24,24 @@ const ChatWindow = () => {
         <div className="chat-window">
             <div className="messages">
                 {messages.map((msg, index) => (
-                    <div key={index} className={`message-box ${msg.type}`}>
-                        <p>{msg.text}</p>
+                    <div
+                        key={index}
+                        className={`message-box ${msg.sender}`}
+                    >
+                        {msg.text}
                     </div>
                 ))}
             </div>
             <div className="input-container">
-                <input 
-                    type="text" 
-                    placeholder="Mesajınızı yazın..." 
-                    value={message} 
-                    onChange={(e) => setMessage(e.target.value)} 
+                <input
+                    type="text"
+                    placeholder="Mesajınızı yazın..."
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
                 />
-                <button className="send-button" onClick={handleSendMessage}>Gönder</button>
+                <button className="send-button" onClick={handleSend}>
+                    Gönder
+                </button>
             </div>
         </div>
     );
