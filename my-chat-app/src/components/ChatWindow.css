@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    background-color: #ecf0f1;
+    background-color: #d7ade8;
     width: 400px; /* Genişlik belirleme */
     height: 600px; /* Yükseklik belirleme */
     position: relative; /* Konumlandırma için gerekli */
@@ -36,6 +36,7 @@
     align-self: flex-end; /* Kullanıcı mesajlarını sağa hizala */
     /**/
     text-align: right; /* Kullanıcı mesajlarını sağa hizala */
+    border-radius: 15px 15px 0 15px;
 }
 
 .message-box.bot {
@@ -43,6 +44,7 @@
     align-self: flex-start; /* Chatbot mesajlarını sola hizala */
     /**/
     text-align: left; /* Chatbot mesajlarını sola hizala */
+    border-radius: 15px 15px 15px 0
 }
 
 .input-container {
