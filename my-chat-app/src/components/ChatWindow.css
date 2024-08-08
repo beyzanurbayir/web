@@ -17,6 +17,24 @@
     margin-bottom: 20px;
 }
 
+.message-box {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 80%; /* Mesaj kutularının genişliğini sınırla */
+    word-wrap: break-word;
+}
+
+.message-box.user {
+    background-color: #d4edda; /* Açık yeşil arka plan */
+    align-self: flex-end; /* Kullanıcı mesajlarını sağa hizala */
+}
+
+.message-box.bot {
+    background-color: #f1f1f1; /* Açık gri arka plan */
+    align-self: flex-start; /* Chatbot mesajlarını sola hizala */
+}
+
 .input-container {
     display: flex;
     align-items: center;

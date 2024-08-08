@@ -18,7 +18,9 @@ const ChatWindow = () => {
         <div className="chat-window">
             <div className="messages">
                 {messages.map((msg, index) => (
-                    <p key={index} className={msg.type}>{msg.text}</p>
+                    <div key={index} className={`message-box ${msg.type}`}>
+                        <p>{msg.text}</p>
+                    </div>
                 ))}
             </div>
             <div className="input-container">
