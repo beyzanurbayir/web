@@ -1,0 +1,45 @@
+/* Tüm elementler için sıfırlama */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Genel sayfa ayarları */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Linkler için genel stil */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Görsellerin maksimum genişliği için */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Sayfa genelinde uygulanan düzen */
+#root {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Scrollbar stilini gizleme */
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
