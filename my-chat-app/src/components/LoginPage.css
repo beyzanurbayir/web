@@ -1,0 +1,80 @@
+/* Tüm sayfa için stil ayarları */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Yatayda ortalama */
+    align-items: center; /* Dikeyde ortalama */
+    background-color: #f4f4f4; /* Arka plan rengi */
+}
+
+/* Ana container için stil ayarları */
+#root {
+    display: flex;
+    justify-content: center; /* Yatayda ortalama */
+    align-items: center; /* Dikeyde ortalama */
+    width: 100%;
+    height: 100%;
+}
+
+/* Login sayfasının container'ı */
+.login-page {
+    display: flex;
+    justify-content: center; /* Yatayda ortalama */
+    align-items: center; /* Dikeyde ortalama */
+    width: 100%;
+    height: 100%;
+}
+
+/* Login formu için stil ayarları */
+.login-form {
+    background: #f8d7da; /* Açık kırmızı arka plan rengi */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Form genişliği */
+    text-align: center; /* İçerik ortalaması */
+}
+
+/* Giriş formundaki input'lar */
+.login-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Giriş yap butonu ve misafir girişi butonunun stilleri */
+.login-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1abc9c; /* Yeşil arka plan rengi */
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.login-form button:hover {
+    background-color: #16a085;
+}
+
+/* Misafir Girişi butonuna özel stil */
+.guest-button {
+    background-color: #3498db; /* Mavi arka plan rengi */
+}
+
+.guest-button:hover {
+    background-color: #2980b9; /* Butonun üzerine gelindiğinde mavi arka plan rengi */
+}
+
+/* Buton grubunu yatayda ortalamak */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Butonları yatayda ortalar */
+}
