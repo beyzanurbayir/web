@@ -7,6 +7,7 @@
     background-color: #ecf0f1;
     width: 400px; /* Genişlik belirleme */
     height: 600px; /* Yükseklik belirleme */
+    position: relative; /* Konumlandırma için gerekli */
   }
   
 
@@ -16,10 +17,34 @@
     margin-bottom: 20px;
 }
 
+.input-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 20px; /* Butonun alt köşeye yakın yerleştirilmesini sağlar */
+    right: 20px; /* Butonun sağ köşeye yakın yerleştirilmesini sağlar */
+    width: calc(100% - 40px); /* Butonun tam genişliği kapsamasını sağlar */
+}
+
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
     width: 100%;
+    flex: 1; /* Mesaj kutusunun tüm boşluğu kaplamasını sağlar */
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+.send-button {
+    padding: 10px;
+    font-size: 16px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1abc9c;
+    color: white;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: #16a085;
 }
