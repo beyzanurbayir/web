@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ChatWindow.css';
 
 const ChatWindow = () => {
-    const [messages, setMessages] = useState([
-        { text: "Merhaba, size nasıl yardımcı olabilirim?", sender: "bot" },
-        
-    ]);
-    const [input, setInput] = useState("");
+    const [messages, setMessages] = useState(() => {
+        // localStorage'dan mesajları al
+        const savedMessages = localStorage.getItem('chatMessages');
+        return savedMessages ? JSON.parse(savedMessages) : [
+            { text: "Merhaba, size nasıl yardımcı olabilirim?", sender: "bot" }
+        ];
+    });
+
+    const [input, setInput] = useState('');
 
     const handleSend = () => {
         if (input.trim()) {
-            setMessages([...messages, { text: input, sender: "user" }]);
-            setInput(""); // input alanını temizle
+            const newMessages = [...messages, { sender: 'user', text: input }];
+            setMessages(newMessages);
+            setInput('');
+
+            // Mesajları localStorage'a kaydet
+            localStorage.setItem('chatMessages', JSON.stringify(newMessages));
 
             // Chatbot cevabı
             setTimeout(() => {
-                setMessages([...messages, { text: input, sender: "user" }, { text: "merhaba", sender: "bot" }]);
-            }, 500); // 500 ms sonra cevap göster
+                const botMessages = [...newMessages, { sender: 'bot', text: 'Merhaba' }];
+                setMessages(botMessages);
+
+                // Cevabı da localStorage'a kaydet
+                localStorage.setItem('chatMessages', JSON.stringify(botMessages));
+            }, 500);
         }
     };
 
