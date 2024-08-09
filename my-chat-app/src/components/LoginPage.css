@@ -78,3 +78,6 @@ html, body {
     gap: 10px;
     justify-content: center; /* Butonları yatayda ortalar */
 }
+.button-group button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
