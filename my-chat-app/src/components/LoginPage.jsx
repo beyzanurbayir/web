@@ -1,16 +1,48 @@
-// src/components/LoginPage.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
+import 'react-toastify/dist/ReactToastify.css'; // Toastify CSS
 import './LoginPage.css';
 
 function LoginPage({ onLogin, onGuestLogin }) {
+
+    // Kullanıcı adı ve şifre için state tanımları
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
     const navigate = useNavigate();
 
-    const handleLoginClick = () => {
-        onLogin();
-        navigate('/chat');
+    // Kullanıcı adı ve şifreleri içeren basit bir kullanıcı listesi
+    const users = [
+        { username: 'admin', password: '123' },
+        { username: 'user1', password: 'pass1' },
+        { username: 'user2', password: 'pass2' }
+    ];
+
+    // Giriş yapma fonksiyonu
+    const handleLogin = () => {
+        const user = users.find((user) => user.username === username && user.password === password);
+
+        if (user) {
+            // Giriş başarılı, login callback ve yönlendirme işlemleri
+            onLogin();
+            navigate('/chat');
+        } else {
+          // Hatalı giriş, pop-up hata mesajı göster
+          toast.error('Kullanıcı adı veya şifre hatalı!', {
+            position: "top-center",
+            autoClose: 3000, // 3 saniye sonra kapanır
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        }
     };
 
+    // Misafir girişi fonksiyonu
     const handleGuestLoginClick = () => {
         onGuestLogin();
         navigate('/chat');
@@ -18,16 +50,28 @@ function LoginPage({ onLogin, onGuestLogin }) {
 
     return (
         <div className="login-page">
-            <div className="login-form">
-                <h2>Giriş Yap</h2>
-                <input type="text" placeholder="Kullanıcı Adı" />
-                <input type="password" placeholder="Şifre" />
-                <div className="button-group">
-                    <button onClick={handleLoginClick}>Giriş Yap</button>
-                    <button onClick={handleGuestLoginClick} className="guest-button">Misafir Girişi</button>
+            <ToastContainer /> {/* Bu bileşeni ekleyin */}
+                <div className="login-form">
+                    <h2>Giriş Yap</h2>
+                    <input 
+                        type="text" 
+                        placeholder="Kullanıcı Adı" 
+                        value={username} 
+                        onChange={(e) => setUsername(e.target.value)} 
+                    />
+                    <input 
+                        type="password" 
+                        placeholder="Şifre" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                    />
+                    <div className="button-group">
+                        <button onClick={handleLogin}>Giriş Yap</button>
+                        {error && <p className="error">{error}</p>}
+                        <button onClick={handleGuestLoginClick} className="guest-button">Misafir Girişi</button>
+                    </div>
                 </div>
             </div>
-        </div>
     );
 }
 

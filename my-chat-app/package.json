@@ -9,11 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "vite"
-
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
