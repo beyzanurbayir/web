@@ -1,15 +1,15 @@
-const API_KEY = 'd7259f93'; 
+const API_URL = 'http://localhost:5090/'; 
 
-export const fetchMovieData = async (movieTitle) => {
-  const response = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(movieTitle)}&apikey=${API_KEY}`);
+export const fetchMovieData = async (movieName) => {
+  const response = await fetch(`${API_URL}film/name/${encodeURIComponent(movieName)}`); // Endpoint: /film/name/{name}
   const data = await response.json();
   
-  if (data.Response === 'True') {
+  if (data && data.name) {
     return {
-      title: data.Title,
-      genre: data.Genre,
-      year: data.Year,
-      director: data.Director,
+      title: data.name,
+      genre: data.genre,
+      year: data.year,
+      director: data.director,
       imdbRating: data.imdbRating,
     };
   } else {
