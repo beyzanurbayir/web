@@ -11,11 +11,11 @@ function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const handleLogin = () => {
-        setIsLoggedIn(true); // Set the user as logged in
+        setIsLoggedIn(true); // Kullanıcının giriş yaptığını belirleyin
     };
 
     const handleGuestLogin = () => {
-        setIsLoggedIn(true); // Set the user as logged in as a guest
+        setIsLoggedIn(true); // Kullanıcının misafir olarak giriş yaptığını belirleyin
     };
 
     return (
@@ -41,7 +41,7 @@ const ChatPage = ({ setIsLoggedIn }) => {
             <Sidebar />
             <div className="main-content">
                 <ProfileMenu />
-                <ChatWindow />
+                <ChatWindow /> {/* ChatWindow bileşeni burada entegre edilmiş durumda */}
                 <button className="logout-button" onClick={handleLogout}>Çıkış Yap</button>
             </div>
         </div>

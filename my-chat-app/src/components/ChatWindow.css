@@ -1,21 +1,31 @@
 /* ChatWindow.css */
 .chat-window {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start; /* Chat ve film listesi arasındaki boşluğu ayarla */
     padding: 20px;
     background-color: #d7ade8;
-    width: 400px; /* Genişlik belirleme */
-    height: 600px; /* Yükseklik belirleme */
-    position: relative; /* Konumlandırma için gerekli */
-  }
-  
+    width: 800px; /* Chatbot alanının genişliği */
+    height: 600px; /* Yükseklik */
+    position: relative;
+    margin-right: 250px;
+}
+
+.chat-area {
+    flex: 1; /* Chat alanı esneyebilir */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% - 220px); /* Film listesi için yer bırak */
+    height: 100%;
+    overflow-y: auto;
+    margin-right: 20px;
+    background-color: #d7ade8; /* Chat alanının arka plan rengi */
+}
 
 .messages {
-    flex: 1;
+    flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 20px;
-    /**/
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Mesajları sola hizala */
@@ -25,45 +35,40 @@
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
-    max-width: 80%; /* Mesaj kutularının genişliğini sınırla */
+    max-width: 80%;
     word-wrap: break-word;
-    /**/
-    display: inline-block; /* Kutucukların yan yana olmasını sağlar */
+    display: inline-block;
 }
 
 .message-box.user {
-    background-color: #d4edda; /* Açık yeşil arka plan */
+    background-color: #d4edda;
     align-self: flex-end; /* Kullanıcı mesajlarını sağa hizala */
-    /**/
-    text-align: right; /* Kullanıcı mesajlarını sağa hizala */
+    text-align: right;
     border-radius: 15px 15px 0 15px;
 }
 
 .message-box.bot {
-    background-color: #f1f1f1; /* Açık gri arka plan */
+    background-color: #f1f1f1;
     align-self: flex-start; /* Chatbot mesajlarını sola hizala */
-    /**/
-    text-align: left; /* Chatbot mesajlarını sola hizala */
-    border-radius: 15px 15px 15px 0
+    text-align: left;
+    border-radius: 15px 15px 15px 0;
 }
 
 .input-container {
     display: flex;
     align-items: center;
-    position: absolute;
-    bottom: 20px; /* Butonun alt köşeye yakın yerleştirilmesini sağlar */
-    right: 20px; /* Butonun sağ köşeye yakın yerleştirilmesini sağlar */
-    width: calc(100% - 40px); /* Butonun tam genişliği kapsamasını sağlar */
+    position: relative; /* Position absolute kaldırıldı */
+    width: 100%;
 }
 
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
-    width: 100%;
-    flex: 1; /* Mesaj kutusunun tüm boşluğu kaplamasını sağlar */
+    width: calc(100% - 110px); /* Gönder butonu için boşluk bırak */
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .send-button {
     padding: 10px;
     font-size: 16px;
@@ -78,3 +83,37 @@ input[type="text"] {
 .send-button:hover {
     background-color: #16a085;
 }
+
+/* Movie List'inin ekranın sağında konumlanması için stil */
+.movie-list {
+    width: 200px; /* Film listesinin genişliği */
+    background-color: #ca9090;
+    padding: 0px;
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+    position: fixed; /* Ekranın sağında sabitlenmiş */
+    right: 210px; /* Profil alanı için yer bırak */
+    margin-top: 92px; /* Ekranın en üstünde */
+    top: 0px;
+    height: 600px;
+    z-index: 1000; /* Diğer içeriklerin üzerinde olması için */
+}
+/* Movie List butonları için stil */
+.movie-list button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e6bbb4; /* Buton arka plan rengi */
+    color: #333;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.movie-list button:hover {
+    background-color: #e7f1e4; /* Butona hover efekti */
+}
+
