@@ -92,8 +92,8 @@ input[type="text"] {
     border-left: 1px solid #ccc;
     overflow-y: auto;
     position: fixed; /* Ekranın sağında sabitlenmiş */
-    right: 210px; /* Profil alanı için yer bırak */
-    margin-top: 92px; /* Ekranın en üstünde */
+    right: 100px; /* Profil alanı için yer bırak */
+    margin-top: 76px; /* Ekranın en üstünde */
     top: 0px;
     height: 600px;
     z-index: 1000; /* Diğer içeriklerin üzerinde olması için */

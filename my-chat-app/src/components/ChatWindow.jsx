@@ -12,6 +12,7 @@ const ChatWindow = () => {
 
     const [input, setInput] = useState('');
     const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(null); // Tıklanan filmi takip eden state
 
     useEffect(() => {
         // API çağrısı yaparak film isimlerini alın
@@ -52,8 +53,15 @@ const ChatWindow = () => {
     };
 
     const handleButtonClick = (movieName) => {
-        setInput(movieName);
-        handleSend();
+        if (selectedMovie === movieName) {
+            // Aynı filme tekrar tıklandı, input alanından geri al
+            setInput('');
+            setSelectedMovie(null);
+        } else {
+            // Farklı bir filme tıklandı, input alanına yerleştir
+            setInput(movieName);
+            setSelectedMovie(movieName);
+        }
     };
 
     useEffect(() => {
