@@ -1,7 +1,7 @@
 .sidebar {
   width: 250px;
-  background-color: #2c3e50; /* Sidebar için koyu mavi-gri */
-  color: white;
+  background-color: #343a40; /* Sidebar için koyu gri */
+  color: #ffffff; /* Metin için beyaz */
   padding: 20px;
   position: fixed;
   top: 0;
@@ -14,14 +14,14 @@
   margin-bottom: 20px;
   cursor: pointer;
   padding: 10px;
-  background-color: #2980b9; /* Başlık için canlı mavi */
+  background-color: #495057; /* Başlık için koyu gri */
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .sidebar h2:hover {
-  background-color: #3498db; /* Hover efekti için daha açık mavi */
-  color: white;
+  background-color: #6c757d; /* Hover efekti için daha açık gri */
+  color: #ffffff;
 }
 
 .sidebar ul {
@@ -36,8 +36,8 @@
 }
 
 .sidebar ul li:hover {
-  background-color: #1abc9c; /* Hover efekti için turkuaz yeşil */
-  color: white;
+  background-color: #495057; /* Hover efekti için koyu gri */
+  color: #ffffff; /* Hover efekti için beyaz yazı rengi */
   padding: 5px;
   border-radius: 5px;
 }

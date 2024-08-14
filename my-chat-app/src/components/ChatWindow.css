@@ -1,8 +1,8 @@
 .chat-window {
     display: flex;
     justify-content: flex-start;
-    padding: 20px;
-    background-color: #2c3e50; /* Koyu mavi-gri bir arka plan */
+    padding: 10px;
+    background-color: #f5f5dc; /* Arka plan için açık bej */
     width: 800px;
     height: 600px;
     position: relative;
@@ -18,7 +18,7 @@
     height: 100%;
     overflow-y: auto;
     margin-right: 20px;
-    background-color: #34495e; /* Chat alanı için daha açık bir mavi-gri */
+    background-color: #ffffff; /* Chat alanı için beyaz */
 }
 
 .messages {
@@ -28,6 +28,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.messages::-webkit-scrollbar {
+    width: 12px; /* Kaydırma çubuğunun genişliği */
+    background-color: #e0e0e0; /* Kaydırma çubuğunun arka plan rengi */
 }
 
 .message-box {
@@ -40,17 +45,25 @@
 }
 
 .message-box.user {
-    background-color: #27ae60; /* Kullanıcı mesajları için canlı bir yeşil */
+    background-color: #28a745; /* Kullanıcı mesajları için açık yeşil */
     align-self: flex-end;
     text-align: right;
+    margin-right: 20px;
     border-radius: 15px 15px 0 15px;
+    color: #ffffff; /* Metin için beyaz */
 }
 
 .message-box.bot {
-    background-color: #ecf0f1; /* Chatbot mesajları için yumuşak bir beyaz */
+    background-color: #f5f5dc; /* Chatbot mesajları için açık bej */
     align-self: flex-start;
     text-align: left;
     border-radius: 15px 15px 15px 0;
+    color: #000000; /* Metin için açık yeşil */
+    margin-left: 20px; /* Sağ kaydırmak için soldan boşluk ekler */
+    margin-top: 10px; /* Yukarıdan boşluk ekler */
+    margin-bottom: 10px; /* Alt boşluk */
+    max-width: 80%; /* Genişliği sınırlar, ihtiyaca göre ayarlanabilir */
+    padding: 10px; /* İçerik ile kenar arasına boşluk ekler */
 }
 
 .input-container {
@@ -63,7 +76,7 @@ input[type="text"] {
     padding: 10px;
     font-size: 16px;
     width: calc(100% - 120px);
-    border: 1px solid #bdc3c7; /* Gri bir sınır */
+    border: 1px solid #28a745; /* Sınır için açık yeşil */
     border-radius: 5px;
     margin-right: 10px;
 }
@@ -74,20 +87,20 @@ input[type="text"] {
     width: 100px;
     border: none;
     border-radius: 5px;
-    background-color: #2980b9; /* Gönder butonu için canlı bir mavi */
-    color: white;
+    background-color: #28a745; /* Gönder butonu için açık yeşil */
+    color: #ffffff; /* Metin için beyaz */
     cursor: pointer;
 }
 
 .send-button:hover {
-    background-color: #3498db; /* Hover rengi için daha açık bir mavi */
+    background-color: #218838; /* Hover efekti için biraz daha koyu açık yeşil */
 }
 
 /* Movie List'inin ekranın sağında konumlanması için stil */
 .movie-list {
     width: 200px;
     text-align: center;
-    background-color: #1abc9c; /* Film listesi için turkuaz yeşil */
+    background-color: #f5f5dc; /* Film listesi için açık bej */
     padding: 0px;
     border-left: 1px solid #ccc;
     overflow-y: auto;
@@ -107,13 +120,13 @@ input[type="text"] {
     margin: 0 auto 10px;
     border: none;
     border-radius: 5px;
-    background-color: #16a085; /* Butonlar için koyu turkuaz */
-    color: white;
+    background-color: #28a745; /* Butonlar için açık yeşil */
+    color: #ffffff; /* Metin için beyaz */
     font-size: 16px;
     text-align: center;
     cursor: pointer;
 }
 
 .movie-list button:hover {
-    background-color: #1abc9c; /* Hover efekti için parlak turkuaz */
+    background-color: #218838; /* Hover efekti için biraz daha koyu açık yeşil */
 }
