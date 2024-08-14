@@ -5,6 +5,7 @@ import LoginPage from './components/LoginPage';
 import Sidebar from './components/Sidebar';
 import ProfileMenu from './components/ProfileMenu';
 import ChatWindow from './components/ChatWindow';
+import FilmEkle from './components/FilmEkle'; // FilmEkle bileşenini import et
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LoginPage onLogin={handleLogin} onGuestLogin={handleGuestLogin} />} />
                 <Route path="/chat" element={<ChatPage setIsLoggedIn={setIsLoggedIn} />} />
+                <Route path="/film-ekle" element={<FilmEkle />} />
             </Routes>
         </Router>
     );

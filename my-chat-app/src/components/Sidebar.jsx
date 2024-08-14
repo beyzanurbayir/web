@@ -1,4 +1,6 @@
+// Sidebar.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Link bileşenini import et
 import './Sidebar.css';
 
 const Sidebar = () => {
@@ -10,7 +12,7 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar">
-            <h2 onClick={toggleChat}>Geçmiş </h2>
+            <h2 onClick={toggleChat}>Geçmiş</h2>
             {isChatOpen && (
                 <ul>
                     <li>Sohbet 1</li>
@@ -18,6 +20,9 @@ const Sidebar = () => {
                     <li>Sohbet 3</li>
                 </ul>
             )}
+            <Link to="/film-ekle">
+                <h2>Film Ekle</h2>
+            </Link>
             <h2>Ayarlar</h2>
         </div>
     );

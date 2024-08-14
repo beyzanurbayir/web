@@ -57,22 +57,22 @@
 .input-container {
     display: flex;
     align-items: center;
-    position: relative; /* Position absolute kaldırıldı */
     width: 100%;
 }
 
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
-    width: calc(100% - 110px); /* Gönder butonu için boşluk bırak */
+    width: calc(100% - 120px); /* Gönder butonu için yeterli boşluk bırak */
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-right: 10px; /* Buton ile aralarındaki boşluk */
 }
 
 .send-button {
     padding: 10px;
     font-size: 16px;
-    margin-left: 10px;
+    width: 100px; /* Butonun genişliği */
     border: none;
     border-radius: 5px;
     background-color: #641982;
@@ -87,6 +87,7 @@ input[type="text"] {
 /* Movie List'inin ekranın sağında konumlanması için stil */
 .movie-list {
     width: 200px; /* Film listesinin genişliği */
+    text-align: center;
     background-color: #ca9090;
     padding: 0px;
     border-left: 1px solid #ccc;
@@ -101,17 +102,18 @@ input[type="text"] {
 /* Movie List butonları için stil */
 .movie-list button {
     display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    width: 90%; /* Genişliği %90 olarak ayarla */
+    padding: 10px 20px; /* Yatay paddingi artır, dikey paddingi azalt */
+    margin: 0 auto 10px; /* Margini otomatik olarak ortala ve alt boşluğu ayarla */
     border: none;
     border-radius: 5px;
     background-color: #e6bbb4; /* Buton arka plan rengi */
     color: #333;
     font-size: 16px;
-    text-align: left;
+    text-align: center; /* Metni ortala */
     cursor: pointer;
 }
+
 
 .movie-list button:hover {
     background-color: #e7f1e4; /* Butona hover efekti */

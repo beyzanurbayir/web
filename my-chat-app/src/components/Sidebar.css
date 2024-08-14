@@ -4,16 +4,25 @@
   background-color: #641982;
   color: white;
   padding: 20px;
-  position: fixed; /* Sol tarafta sabit kalmasını sağlar */
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100vh; /* Ekranın tamamını kaplar */
-  overflow-y: auto; /* Uzun içerik için kaydırma çubuğu */
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .sidebar h2 {
   margin-bottom: 20px;
   cursor: pointer;
+  padding: 10px;
+  background-color: #d7ade8;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar h2:hover {
+  background-color: #1abc9c;
+  color: white;
 }
 
 .sidebar ul {
@@ -34,27 +43,3 @@
   border-radius: 5px;
 }
 
-.sidebar h2 {
-  cursor: pointer;
-  padding: 10px;
-  background-color: #d7ade8;
-  border-radius: 5px;
-}
-
-.sidebar ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-
-.sidebar ul li {
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.sidebar ul li:hover {
-  background-color: #1abc9c;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-}
