@@ -1,25 +1,24 @@
-/* ChatWindow.css */
 .chat-window {
     display: flex;
-    justify-content: flex-start; /* Chat ve film listesi arasındaki boşluğu ayarla */
+    justify-content: flex-start;
     padding: 20px;
-    background-color: #d7ade8;
-    width: 800px; /* Chatbot alanının genişliği */
-    height: 600px; /* Yükseklik */
+    background-color: #2c3e50; /* Koyu mavi-gri bir arka plan */
+    width: 800px;
+    height: 600px;
     position: relative;
     margin-right: 250px;
 }
 
 .chat-area {
-    flex: 1; /* Chat alanı esneyebilir */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: calc(100% - 220px); /* Film listesi için yer bırak */
+    width: calc(100% - 220px);
     height: 100%;
     overflow-y: auto;
     margin-right: 20px;
-    background-color: #d7ade8; /* Chat alanının arka plan rengi */
+    background-color: #34495e; /* Chat alanı için daha açık bir mavi-gri */
 }
 
 .messages {
@@ -28,7 +27,7 @@
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Mesajları sola hizala */
+    align-items: flex-start;
 }
 
 .message-box {
@@ -41,15 +40,15 @@
 }
 
 .message-box.user {
-    background-color: #d4edda;
-    align-self: flex-end; /* Kullanıcı mesajlarını sağa hizala */
+    background-color: #27ae60; /* Kullanıcı mesajları için canlı bir yeşil */
+    align-self: flex-end;
     text-align: right;
     border-radius: 15px 15px 0 15px;
 }
 
 .message-box.bot {
-    background-color: #f1f1f1;
-    align-self: flex-start; /* Chatbot mesajlarını sola hizala */
+    background-color: #ecf0f1; /* Chatbot mesajları için yumuşak bir beyaz */
+    align-self: flex-start;
     text-align: left;
     border-radius: 15px 15px 15px 0;
 }
@@ -63,59 +62,58 @@
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
-    width: calc(100% - 120px); /* Gönder butonu için yeterli boşluk bırak */
-    border: 1px solid #ccc;
+    width: calc(100% - 120px);
+    border: 1px solid #bdc3c7; /* Gri bir sınır */
     border-radius: 5px;
-    margin-right: 10px; /* Buton ile aralarındaki boşluk */
+    margin-right: 10px;
 }
 
 .send-button {
     padding: 10px;
     font-size: 16px;
-    width: 100px; /* Butonun genişliği */
+    width: 100px;
     border: none;
     border-radius: 5px;
-    background-color: #641982;
+    background-color: #2980b9; /* Gönder butonu için canlı bir mavi */
     color: white;
     cursor: pointer;
 }
 
 .send-button:hover {
-    background-color: #16a085;
+    background-color: #3498db; /* Hover rengi için daha açık bir mavi */
 }
 
 /* Movie List'inin ekranın sağında konumlanması için stil */
 .movie-list {
-    width: 200px; /* Film listesinin genişliği */
+    width: 200px;
     text-align: center;
-    background-color: #ca9090;
+    background-color: #1abc9c; /* Film listesi için turkuaz yeşil */
     padding: 0px;
     border-left: 1px solid #ccc;
     overflow-y: auto;
-    position: fixed; /* Ekranın sağında sabitlenmiş */
-    right: 100px; /* Profil alanı için yer bırak */
-    margin-top: 76px; /* Ekranın en üstünde */
+    position: fixed;
+    right: 100px;
+    margin-top: 76px;
     top: 0px;
     height: 600px;
-    z-index: 1000; /* Diğer içeriklerin üzerinde olması için */
+    z-index: 1000;
 }
+
 /* Movie List butonları için stil */
 .movie-list button {
     display: block;
-    width: 90%; /* Genişliği %90 olarak ayarla */
-    padding: 10px 20px; /* Yatay paddingi artır, dikey paddingi azalt */
-    margin: 0 auto 10px; /* Margini otomatik olarak ortala ve alt boşluğu ayarla */
+    width: 90%;
+    padding: 10px 20px;
+    margin: 0 auto 10px;
     border: none;
     border-radius: 5px;
-    background-color: #e6bbb4; /* Buton arka plan rengi */
-    color: #333;
+    background-color: #16a085; /* Butonlar için koyu turkuaz */
+    color: white;
     font-size: 16px;
-    text-align: center; /* Metni ortala */
+    text-align: center;
     cursor: pointer;
 }
 
-
 .movie-list button:hover {
-    background-color: #e7f1e4; /* Butona hover efekti */
+    background-color: #1abc9c; /* Hover efekti için parlak turkuaz */
 }
-

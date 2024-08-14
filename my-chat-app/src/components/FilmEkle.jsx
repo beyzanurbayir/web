@@ -6,13 +6,13 @@ import './FilmEkle.css';
 
 const FilmEkle = () => {
     const [formData, setFormData] = useState({
-        id: '',
         name: '',
         genre: '',
         year: '',
         director: '',
         imdbRating: ''
     });
+    
 
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -28,44 +28,34 @@ const FilmEkle = () => {
         e.preventDefault();
         setSuccessMessage('');
         setErrorMessage('');
-
+    
+        // ID'yi göndermeden formData'yı post edin
         const result = await FilmService.addFilm(formData);
-
+    
         if (result.success) {
             setSuccessMessage('Film başarıyla eklendi!');
             setFormData({
-                id: '',
                 name: '',
                 genre: '',
                 year: '',
                 director: '',
                 imdbRating: ''
             });
-
-            // 1 saniye bekledikten sonra yönlendirme yap
+    
             setTimeout(() => {
-                navigate('/chat'); // chat-window sayfasına yönlendirme
+                navigate('/chat'); 
             }, 1000);
         } else {
             setErrorMessage(result.message);
         }
     };
+    
 
     return (
         <div className="film-ekle-container">
             <h1>Film Ekle</h1>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="id">ID:</label>
-                    <input
-                        type="number"
-                        id="id"
-                        name="id"
-                        value={formData.id}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+
                 <div className="form-group">
                     <label htmlFor="name">Adı:</label>
                     <input

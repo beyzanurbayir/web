@@ -43,7 +43,7 @@ const ChatWindow = () => {
 
                 localStorage.setItem('chatMessages', JSON.stringify(botMessages));
             } catch (error) {
-                const botErrorMessage = `${error.message}`;
+                const botErrorMessage = `Üzgünüm, aradığınız film bulunamadı. Lütfen film adını kontrol edip tekrar deneyin.`;
                 const botMessages = [...newMessages, { sender: 'bot', text: botErrorMessage }];
                 setMessages(botMessages);
 
