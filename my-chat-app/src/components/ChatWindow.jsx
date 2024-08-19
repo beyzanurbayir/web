@@ -33,11 +33,11 @@ const ChatWindow = () => {
             try {
                 const movieData = await fetchMovieData(input);
                 const botResponse = `
-                Film: ${movieData.title}\n
-                Tür: ${movieData.genre}\n
-                Yıl: ${movieData.year}\n
-                Yönetmen: ${movieData.director}\n
-                IMDb Puanı: ${movieData.imdbRating}`;
+                Film: ${movieData.Title}\n
+                Tür: ${movieData.Genre}\n
+                Yıl: ${movieData.ReleaseYear}\n
+                Yönetmen: ${movieData.Director}\n
+                IMDb Puanı: ${movieData.IMDbRating}`;
                 const botMessages = [...newMessages, { sender: 'bot', text: botResponse }];
                 setMessages(botMessages);
 
