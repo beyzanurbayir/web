@@ -1,4 +1,3 @@
-// src/services/FilmService.js
 export default class FilmService {
     static async addFilm(formData) {
         // IMDb puanı 0.0 ile 10.0 arasında olmalı
@@ -12,7 +11,14 @@ export default class FilmService {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    id: 0, // ID sıfır olarak gönderiliyor, API'nin dinamik olarak ID ataması yapması bekleniyor
+                    title: formData.name,
+                    genre: formData.genre,
+                    releaseYear: parseInt(formData.year, 10),
+                    director: formData.director,
+                    imDbRating: parseFloat(formData.imdbRating),
+                }),
             });
 
             const responseBody = await response.text(); // Yanıt gövdesini al
@@ -38,8 +44,8 @@ export default class FilmService {
             const result = JSON.parse(responseBody);
             return { success: true, data: result };
         } catch (error) {
-            console.error('Error:', error);
-            return { success: false, message: error.message || 'Film verileri eklenirken bir hata oluştu. Lütfen tekrar deneyin.' };
+            console.error('Error adding film:', error);
+            return { success: false, message: error.message || 'Film eklenirken bir hata oluştu. Lütfen tekrar deneyin.' };
         }
     }
 }

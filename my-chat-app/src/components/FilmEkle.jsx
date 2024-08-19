@@ -1,4 +1,3 @@
-// src/components/FilmEkle.jsx
 import React, { useState } from 'react';
 import FilmService from '../services/FilmService';
 import { useNavigate } from 'react-router-dom'; // react-router-dom'dan useNavigate'i import et
@@ -13,7 +12,6 @@ const FilmEkle = () => {
         imdbRating: ''
     });
     
-
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -28,10 +26,10 @@ const FilmEkle = () => {
         e.preventDefault();
         setSuccessMessage('');
         setErrorMessage('');
-    
+
         // ID'yi göndermeden formData'yı post edin
         const result = await FilmService.addFilm(formData);
-    
+
         if (result.success) {
             setSuccessMessage('Film başarıyla eklendi!');
             setFormData({
@@ -41,7 +39,7 @@ const FilmEkle = () => {
                 director: '',
                 imdbRating: ''
             });
-    
+
             setTimeout(() => {
                 navigate('/chat'); 
             }, 1000);
@@ -49,7 +47,6 @@ const FilmEkle = () => {
             setErrorMessage(result.message);
         }
     };
-    
 
     return (
         <div className="film-ekle-container">
