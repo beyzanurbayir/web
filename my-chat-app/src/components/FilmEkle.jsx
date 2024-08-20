@@ -52,7 +52,6 @@ const FilmEkle = () => {
         <div className="film-ekle-container">
             <h1>Film Ekle</h1>
             <form onSubmit={handleSubmit}>
-
                 <div className="form-group">
                     <label htmlFor="name">Adı:</label>
                     <input

@@ -1,8 +1,14 @@
+// FilmService.js
 export default class FilmService {
     static async addFilm(formData) {
         // IMDb puanı 0.0 ile 10.0 arasında olmalı
         if (formData.imdbRating < 0.0 || formData.imdbRating > 10.0) {
             return { success: false, message: 'IMDb puanı 0 ile 10 arasında olmalıdır.' };
+        }
+
+        // Yılın 4 basamaktan oluşup oluşmadığını kontrol et
+        if (formData.year.length !== 4) {
+            return { success: false, message: 'Yıl 4 basamaktan oluşmalıdır.' };
         }
 
         try {
@@ -14,35 +20,29 @@ export default class FilmService {
                 body: JSON.stringify({
                     id: 0, // ID sıfır olarak gönderiliyor, API'nin dinamik olarak ID ataması yapması bekleniyor
                     title: formData.name,
-                    genre: formData.genre,
+                    genre: formData.genre, 
                     releaseYear: parseInt(formData.year, 10),
                     director: formData.director,
-                    imDbRating: parseFloat(formData.imdbRating),
+                    imdbRating: parseFloat(formData.imdbRating),
                 }),
             });
 
-            const responseBody = await response.text(); // Yanıt gövdesini al
-
-            let errorMessage = 'Film verileri eklenirken bir hata oluştu.';
-
-            // Yanıtı JSON olarak parse etmeyi dene
-            try {
-                const errorData = JSON.parse(responseBody);
-                if (errorData && errorData.message) {
-                    errorMessage = errorData.message;
-                }
-            } catch {
-                // JSON parse hatası oluşursa, yanıtı metin olarak kullan
-                errorMessage = responseBody || errorMessage;
-            }
+            // Yanıtı JSON olarak al
+            const responseBody = await response.json();
 
             if (!response.ok) {
+                let errorMessage = 'Film verileri eklenirken bir hata oluştu.';
+                if (responseBody && responseBody.errors) {
+                    const errorMessages = Object.values(responseBody.errors)
+                        .flat()
+                        .join(' ');
+                    errorMessage = errorMessages || errorMessage;
+                }
                 throw new Error(errorMessage);
             }
 
-            // Yanıt başarılı ise JSON olarak parse et
-            const result = JSON.parse(responseBody);
-            return { success: true, data: result };
+            return { success: true, data: responseBody };
+
         } catch (error) {
             console.error('Error adding film:', error);
             return { success: false, message: error.message || 'Film eklenirken bir hata oluştu. Lütfen tekrar deneyin.' };
