@@ -1,7 +1,7 @@
-// Sidebar.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Link bileşenini import et
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
+import DIGITURKLOGO from '../assets/DIGITURKLOGO.png'; // Resim dosyasını import ettik
 
 const Sidebar = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
@@ -12,6 +12,7 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar">
+            <img src={DIGITURKLOGO} alt="DIGITURK Logo" className="logo" />
             <h2 onClick={toggleChat}>Geçmiş</h2>
             {isChatOpen && (
                 <ul>

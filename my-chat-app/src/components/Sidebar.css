@@ -1,26 +1,48 @@
+
+/* Google Fonts ile yazı tipini import et */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .sidebar {
-  width: 250px;
-  background-color: #343a40; /* Sidebar için koyu gri */
-  color: #ffffff; /* Metin için beyaz */
+  width: 300px; /* Sidebar genişliğini biraz artırabilirsiniz */
+  background-color: #121212; /* Dark gray for sidebar */
+  color: #ffffff; /* White text */
   padding: 20px;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   overflow-y: auto;
+  font-family: 'Roboto', sans-serif; /* Yeni yazı tipi */
+  display: flex;
+  flex-direction: column; /* Flex düzeni ile dikey hizalama */
+  align-items: center; /* Yatayda ortalamak için */
+}
+
+.sidebar .logo {
+  width: 100%; /* Resmin genişliğini tam genişlik olarak ayarlayın */
+  max-width: 280px; /* Maksimum genişlik */
+  height: auto; /* Yüksekliği otomatik ayarla */
+  margin-bottom: 20px; /* Butonlar ile resim arasına boşluk bırakın */
+  padding: 0 10px; /* Yanlardan boşluk bırakın */
 }
 
 .sidebar h2 {
   margin-bottom: 20px;
   cursor: pointer;
-  padding: 10px;
-  background-color: #495057; /* Başlık için koyu gri */
+  padding: 15px;
+  background-color: #333333; /* Dark gray for header */
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  text-align: center; /* Ortalamak için */
+  display: flex;
+  align-items: center; /* Dikey ortalama */
+  justify-content: center; /* Yatay ortalama */
+  font-weight: 700; /* Kalın yazı tipi */
+  min-width: 250px; /* Buton genişliği artırıldı */
 }
 
 .sidebar h2:hover {
-  background-color: #6c757d; /* Hover efekti için daha açık gri */
+  background-color: #e50914; /* Bright red for hover effect */
   color: #ffffff;
 }
 
@@ -33,11 +55,13 @@
   margin-bottom: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  padding: 10px; /* İçerik için padding ekledik */
+  border-radius: 5px;
+  text-align: center; /* Ortalamak için */
+  min-width: 200px; /* Liste öğeleri genişlik */
 }
 
 .sidebar ul li:hover {
-  background-color: #495057; /* Hover efekti için koyu gri */
-  color: #ffffff; /* Hover efekti için beyaz yazı rengi */
-  padding: 5px;
-  border-radius: 5px;
+  background-color: #333333; /* Dark gray for hover effect */
+  color: #ffffff; /* White text for hover */
 }

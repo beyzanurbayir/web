@@ -2,9 +2,9 @@
     display: flex;
     justify-content: flex-start;
     padding: 10px;
-    background-color: #f5f5dc; /* Arka plan için açık bej */
+    background-color: #121212; /* Dark gray for the background */
     width: 800px;
-    height: 600px;
+    height: 620px;
     position: relative;
     margin-right: 250px;
 }
@@ -18,7 +18,8 @@
     height: 100%;
     overflow-y: auto;
     margin-right: 20px;
-    background-color: #ffffff; /* Chat alanı için beyaz */
+    background-color: #ffffff; /* White for the chat area */
+    margin: auto; /* Yatayda ortalamak için */
 }
 
 .messages {
@@ -30,9 +31,10 @@
     align-items: flex-start;
 }
 
+
 .messages::-webkit-scrollbar {
-    width: 12px; /* Kaydırma çubuğunun genişliği */
-    background-color: #e0e0e0; /* Kaydırma çubuğunun arka plan rengi */
+    width: 12px; /* Scrollbar width */
+    background-color: #333333; /* Dark gray for the scrollbar background */
 }
 
 .message-box {
@@ -45,25 +47,25 @@
 }
 
 .message-box.user {
-    background-color: #28a745; /* Kullanıcı mesajları için açık yeşil */
+    background-color: #e50914; /* Bright red for user messages */
     align-self: flex-end;
     text-align: right;
     margin-right: 20px;
     border-radius: 15px 15px 0 15px;
-    color: #ffffff; /* Metin için beyaz */
+    color: #ffffff; /* White text */
 }
 
 .message-box.bot {
-    background-color: #f5f5dc; /* Chatbot mesajları için açık bej */
+    background-color: #333333; /* Dark gray for bot messages */
     align-self: flex-start;
     text-align: left;
     border-radius: 15px 15px 15px 0;
-    color: #000000; /* Metin için açık yeşil */
-    margin-left: 20px; /* Sağ kaydırmak için soldan boşluk ekler */
-    margin-top: 10px; /* Yukarıdan boşluk ekler */
-    margin-bottom: 10px; /* Alt boşluk */
-    max-width: 80%; /* Genişliği sınırlar, ihtiyaca göre ayarlanabilir */
-    padding: 10px; /* İçerik ile kenar arasına boşluk ekler */
+    color: #ffffff; /* White text */
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    padding: 10px;
 }
 
 .input-container {
@@ -76,7 +78,7 @@ input[type="text"] {
     padding: 10px;
     font-size: 16px;
     width: calc(100% - 120px);
-    border: 1px solid #28a745; /* Sınır için açık yeşil */
+    border: 1px solid #e50914; /* Bright red for the border */
     border-radius: 5px;
     margin-right: 10px;
 }
@@ -87,32 +89,41 @@ input[type="text"] {
     width: 100px;
     border: none;
     border-radius: 5px;
-    background-color: #28a745; /* Gönder butonu için açık yeşil */
-    color: #ffffff; /* Metin için beyaz */
+    background-color: #e50914; /* Bright red for the send button */
+    color: #ffffff; /* White text */
     cursor: pointer;
 }
 
 .send-button:hover {
-    background-color: #218838; /* Hover efekti için biraz daha koyu açık yeşil */
+    background-color: #b20710; /* Darker red for hover effect */
 }
 
-/* Movie List'inin ekranın sağında konumlanması için stil */
+/* Movie List styling */
 .movie-list {
     width: 200px;
     text-align: center;
-    background-color: #f5f5dc; /* Film listesi için açık bej */
+    background-color: #121212; /* Dark gray for the movie list */
     padding: 0px;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #ffffff;
     overflow-y: auto;
     position: fixed;
     right: 100px;
-    margin-top: 76px;
+    margin-top: 66px;
     top: 0px;
     height: 600px;
     z-index: 1000;
 }
 
-/* Movie List butonları için stil */
+/* Movie List title */
+.movie-list-title {
+    font-size: 24px; /* Larger font size for the title */
+    font-weight: bold; /* Bold text */
+    color: #ffffff; /* White for the title */
+    margin: 20px 0; /* Space above and below the title */
+    border-bottom: 2px solid #e50914; /* Bright red underline */
+}
+
+/* Movie List buttons */
 .movie-list button {
     display: block;
     width: 90%;
@@ -120,13 +131,13 @@ input[type="text"] {
     margin: 0 auto 10px;
     border: none;
     border-radius: 5px;
-    background-color: #28a745; /* Butonlar için açık yeşil */
-    color: #ffffff; /* Metin için beyaz */
+    background-color: #e50914; /* Bright red for buttons */
+    color: #ffffff; /* White text */
     font-size: 16px;
     text-align: center;
     cursor: pointer;
 }
 
 .movie-list button:hover {
-    background-color: #218838; /* Hover efekti için biraz daha koyu açık yeşil */
+    background-color: #b20710; /* Darker red for hover effect */
 }

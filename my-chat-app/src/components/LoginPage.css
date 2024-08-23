@@ -81,3 +81,11 @@ html, body {
 .button-group button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
+/* Çıkış Yap butonuna özel stil */
+.logout-button {
+    background-color: #e50914; /* Kırmızı arka plan rengi */
+}
+
+.logout-button:hover {
+    background-color: #c8102e; /* Hover rengini koyulaştır */
+}

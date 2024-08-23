@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { fetchMovieData } from './api';  // API istek fonksiyonunu import edin
 import './ChatWindow.css';
 
@@ -13,6 +13,14 @@ const ChatWindow = () => {
     const [input, setInput] = useState('');
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null); // Tıklanan filmi takip eden state
+
+    // Scroll ref
+    const messagesEndRef = useRef(null);
+
+    // Scroll to bottom on new message
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messages]);
 
     useEffect(() => {
         // API çağrısı yaparak film isimlerini alın
@@ -80,6 +88,7 @@ const ChatWindow = () => {
                             {msg.text}
                         </div>
                     ))}
+                    <div ref={messagesEndRef} /> {/* Scroll reference */}
                 </div>
                 <div className="input-container">
                     <input
@@ -94,7 +103,7 @@ const ChatWindow = () => {
                 </div>
             </div>
             <div className="movie-list">
-                <h2>Movie List</h2>
+                <h2 className="movie-list-title">Movie List</h2>
                 <div>
                     {movies.map((movie, index) => (
                         <button 
