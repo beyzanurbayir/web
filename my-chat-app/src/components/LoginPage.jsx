@@ -25,7 +25,8 @@ function LoginPage({ onLogin, onGuestLogin }) {
         const user = users.find((user) => user.username === username && user.password === password);
 
         if (user) {
-            // Giriş başarılı, login callback ve yönlendirme işlemleri
+            // Giriş başarılı, username'yi localStorage'a kaydet ve login callback
+            localStorage.setItem('username', username);
             onLogin();
             navigate('/chat');
         } else {
@@ -44,6 +45,8 @@ function LoginPage({ onLogin, onGuestLogin }) {
 
     // Misafir girişi fonksiyonu
     const handleGuestLoginClick = () => {
+        // Misafir kullanıcı için username'yi kaldır
+        localStorage.removeItem('username');
         onGuestLogin();
         navigate('/chat');
     };
@@ -53,13 +56,13 @@ function LoginPage({ onLogin, onGuestLogin }) {
             <ToastContainer /> {/* Bu bileşeni ekleyin */}
             <div className="login-form">
                 <h2>Giriş Yap</h2>
-                    <input 
-                        type="text" 
-                        className="form-input username-input" // Özel sınıf adı
-                        placeholder="Kullanıcı Adı" 
-                        value={username} 
-                        onChange={(e) => setUsername(e.target.value)} 
-                    />
+                <input 
+                    type="text" 
+                    className="form-input username-input" // Özel sınıf adı
+                    placeholder="Kullanıcı Adı" 
+                    value={username} 
+                    onChange={(e) => setUsername(e.target.value)} 
+                />
 
                 <input 
                     type="password" 

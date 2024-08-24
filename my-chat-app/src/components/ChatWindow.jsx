@@ -4,7 +4,9 @@ import './ChatWindow.css';
 
 const ChatWindow = () => {
     const [messages, setMessages] = useState(() => {
-        const savedMessages = localStorage.getItem('chatMessages');
+        // Kullanıcı adı ve misafir kontrolü
+        const username = localStorage.getItem('username');
+        const savedMessages = localStorage.getItem(`chatMessages_${username}`);
         return savedMessages ? JSON.parse(savedMessages) : [
             { text: "Merhaba, lütfen bir film ismi giriniz", sender: "bot" }
         ];
@@ -36,7 +38,9 @@ const ChatWindow = () => {
             setMessages(newMessages);
             setInput('');
 
-            localStorage.setItem('chatMessages', JSON.stringify(newMessages));
+            // Kullanıcı adı ve misafir kontrolü
+            const username = localStorage.getItem('username');
+            localStorage.setItem(`chatMessages_${username}`, JSON.stringify(newMessages));
 
             try {
                 const movieData = await fetchMovieData(input);
@@ -49,13 +53,13 @@ const ChatWindow = () => {
                 const botMessages = [...newMessages, { sender: 'bot', text: botResponse }];
                 setMessages(botMessages);
 
-                localStorage.setItem('chatMessages', JSON.stringify(botMessages));
+                localStorage.setItem(`chatMessages_${username}`, JSON.stringify(botMessages));
             } catch (error) {
                 const botErrorMessage = `Üzgünüm, aradığınız film bulunamadı. Lütfen film adını kontrol edip tekrar deneyin.`;
                 const botMessages = [...newMessages, { sender: 'bot', text: botErrorMessage }];
                 setMessages(botMessages);
 
-                localStorage.setItem('chatMessages', JSON.stringify(botMessages));
+                localStorage.setItem(`chatMessages_${username}`, JSON.stringify(botMessages));
             }
         }
     };
@@ -73,7 +77,9 @@ const ChatWindow = () => {
     };
 
     useEffect(() => {
-        localStorage.setItem('chatMessages', JSON.stringify(messages));
+        // Kullanıcı adı ve misafir kontrolü
+        const username = localStorage.getItem('username');
+        localStorage.setItem(`chatMessages_${username}`, JSON.stringify(messages));
     }, [messages]);
 
     return (
