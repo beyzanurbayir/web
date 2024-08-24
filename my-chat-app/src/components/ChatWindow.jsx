@@ -103,7 +103,7 @@ const ChatWindow = () => {
                 </div>
             </div>
             <div className="movie-list">
-                <h2 className="movie-list-title">Movie List</h2>
+                <h2 className="movie-list-title">Film Listesi</h2>
                 <div>
                     {movies.map((movie, index) => (
                         <button 

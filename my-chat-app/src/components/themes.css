@@ -1,0 +1,51 @@
+/* Tema Renkleri */
+:root {
+    --light-bg: #ffffff;
+    --light-text: #000000;
+    --dark-bg: #000000;
+    --dark-text: #ffffff;
+    --sidebar-bg-light: #f0f0f0;
+    --sidebar-bg-dark: #121212;
+    --sidebar-text-light: #000000;
+    --sidebar-text-dark: #ffffff;
+    --switch-bg-light: #ccc;
+    --switch-bg-dark: #555;
+    --switch-slider-bg: #ffffff;
+    --switch-slider-active-bg: #0d6efd;
+}
+
+body.default-theme {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+body.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.sidebar.default-theme {
+    background-color: var(--sidebar-bg-light);
+    color: var(--sidebar-text-light);
+}
+
+.sidebar.dark-theme {
+    background-color: var(--sidebar-bg-dark);
+    color: var(--sidebar-text-dark);
+}
+
+.switch .slider {
+    background-color: var(--switch-bg-light); /* Varsayılan tema için arka plan rengi */
+}
+
+body.dark-theme .switch .slider {
+    background-color: var(--switch-bg-dark); /* Koyu tema için arka plan rengi */
+}
+
+.switch .slider:before {
+    background-color: var(--switch-slider-bg);
+}
+
+input:checked + .slider {
+    background-color: var(--switch-slider-active-bg); /* Seçili olduğunda arka plan rengi */
+}
