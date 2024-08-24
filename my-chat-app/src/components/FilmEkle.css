@@ -1,18 +1,17 @@
-/* src/components/FilmEkle.css */
-
+/* Tema için varsayılan stiller */
 .film-ekle-container {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border: 1px solid #333333; /* Koyu gri sınır */
+    border: 1px solid #333333; /* Varsayılan sınır rengi */
     border-radius: 8px;
-    background-color: #121212; /* Koyu gri arka plan */
+    background-color: #121212; /* Varsayılan arka plan rengi */
 }
 
 .film-ekle-container h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #ffffff; /* Beyaz başlık rengi */
+    color: #ffffff; /* Varsayılan başlık rengi */
 }
 
 .form-group {
@@ -23,24 +22,24 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #ffffff; /* Beyaz etiket rengi */
+    color: #ffffff; /* Varsayılan etiket rengi */
 }
 
 .form-group input {
     width: 100%;
     padding: 8px;
-    border: 1px solid #e50914; /* Parlak kırmızı sınır */
+    border: 1px solid #e50914; /* Varsayılan sınır rengi */
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: #333333; /* Koyu gri arka plan */
-    color: #ffffff; /* Beyaz yazı rengi */
+    background-color: #333333; /* Varsayılan arka plan rengi */
+    color: #ffffff; /* Varsayılan yazı rengi */
 }
 
 button {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #e50914; /* Parlak kırmızı arka plan */
+    background-color: #e50914; /* Varsayılan arka plan rengi */
     color: white;
     border: none;
     border-radius: 4px;
@@ -49,6 +48,64 @@ button {
 }
 
 button:hover {
+    background-color: #b20710; /* Varsayılan hover efekti */
+}
+
+/* Aydınlık tema için stil */
+.default-theme .film-ekle-container {
+    border-color: #dddddd; /* Açık gri sınır */
+    background-color: #f5f5f5; /* Açık gri arka plan */
+}
+
+.default-theme .film-ekle-container h1 {
+    color: #333333; /* Koyu gri başlık rengi */
+}
+
+.default-theme .form-group label {
+    color: #333333; /* Koyu gri etiket rengi */
+}
+
+.default-theme .form-group input {
+    border: 1px solid #333333; /* Koyu gri sınır */
+    background-color: #ffffff; /* Beyaz arka plan */
+    color: #333333; /* Koyu gri yazı rengi */
+}
+
+.default-theme button {
+    background-color: #f44336; /* Koyu gri arka plan */
+    color: white;
+}
+
+.default-theme button:hover {
+    background-color: #d32f2f; /* Daha koyu gri hover efekti */
+}
+
+/* Karanlık tema için stil */
+.dark-theme .film-ekle-container {
+    border-color: #666666; /* Koyu gri sınır */
+    background-color: #2c2c2c; /* Koyu gri arka plan */
+}
+
+.dark-theme .film-ekle-container h1 {
+    color: #ffffff; /* Beyaz başlık rengi */
+}
+
+.dark-theme .form-group label {
+    color: #ffffff; /* Beyaz etiket rengi */
+}
+
+.dark-theme .form-group input {
+    border: 1px solid #e50914; /* Parlak kırmızı sınır */
+    background-color: #333333; /* Koyu gri arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
+}
+
+.dark-theme button {
+    background-color: #e50914; /* Parlak kırmızı arka plan */
+    color: white;
+}
+
+.dark-theme button:hover {
     background-color: #b20710; /* Daha koyu kırmızı hover efekti */
 }
 

@@ -44,23 +44,23 @@ html, body {
     font-size: 16px;
     border: 1px solid #e50914;
     border-radius: 5px;
+    margin-left: 7px;
     background-color: #121212;
     color: #ffffff;
-    box-sizing: border-box;
-    margin-left: 3px;
+    width: 550px; 
 }
 .password-input {
-
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
-    margin-left: 3px;
     border: 1px solid #e50914;
     border-radius: 5px;
     background-color: #121212;
     color: #ffffff;
-    box-sizing: border-box;
+    margin-left: 1px;
+    width: 140px; 
 }
+
 /* Giriş yap butonu ve misafir girişi butonunun stilleri */
 .login-form button {
     padding: 10px;
@@ -92,7 +92,7 @@ html, body {
 
 /* Çıkış Yap butonuna özel stil */
 .logout-button {
-    background-color: #e50914; /* Parlak kırmızı arka plan rengi */
+    background-color: #d32f2f; /* Parlak kırmızı arka plan rengi */
     color: white;
 }
 
