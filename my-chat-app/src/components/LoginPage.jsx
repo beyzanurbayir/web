@@ -29,16 +29,16 @@ function LoginPage({ onLogin, onGuestLogin }) {
             onLogin();
             navigate('/chat');
         } else {
-          // Hatalı giriş, pop-up hata mesajı göster
-          toast.error('Kullanıcı adı veya şifre hatalı!', {
-            position: "top-center",
-            autoClose: 3000, // 3 saniye sonra kapanır
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+            // Hatalı giriş, pop-up hata mesajı göster
+            toast.error('Kullanıcı adı veya şifre hatalı!', {
+                position: "top-center",
+                autoClose: 3000, // 3 saniye sonra kapanır
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     };
 
@@ -51,27 +51,30 @@ function LoginPage({ onLogin, onGuestLogin }) {
     return (
         <div className="login-page">
             <ToastContainer /> {/* Bu bileşeni ekleyin */}
-                <div className="login-form">
-                    <h2>Giriş Yap</h2>
+            <div className="login-form">
+                <h2>Giriş Yap</h2>
                     <input 
                         type="text" 
+                        className="form-input username-input" // Özel sınıf adı
                         placeholder="Kullanıcı Adı" 
                         value={username} 
                         onChange={(e) => setUsername(e.target.value)} 
                     />
-                    <input 
-                        type="password" 
-                        placeholder="Şifre" 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
-                    />
-                    <div className="button-group">
-                        <button onClick={handleLogin}>Giriş Yap</button>
-                        {error && <p className="error">{error}</p>}
-                        <button onClick={handleGuestLoginClick} className="guest-button">Misafir Girişi</button>
-                    </div>
+
+                <input 
+                    type="password" 
+                    className="form-input password-input" // Özel sınıf adı
+                    placeholder="Şifre" 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                />
+                <div className="button-group">
+                    <button onClick={handleLogin}>Giriş Yap</button>
+                    {error && <p className="error">{error}</p>}
+                    <button onClick={handleGuestLoginClick} className="guest-button">Misafir Girişi</button>
                 </div>
             </div>
+        </div>
     );
 }
 

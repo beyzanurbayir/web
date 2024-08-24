@@ -4,14 +4,15 @@
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #333333; /* Koyu gri sınır */
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #121212; /* Koyu gri arka plan */
 }
 
 .film-ekle-container h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: #ffffff; /* Beyaz başlık rengi */
 }
 
 .form-group {
@@ -22,21 +23,24 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: #ffffff; /* Beyaz etiket rengi */
 }
 
 .form-group input {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #e50914; /* Parlak kırmızı sınır */
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #333333; /* Koyu gri arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
 }
 
 button {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #e50914; /* Parlak kırmızı arka plan */
     color: white;
     border: none;
     border-radius: 4px;
@@ -45,7 +49,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #b20710; /* Daha koyu kırmızı hover efekti */
 }
 
 /* Bildirim stilleri */

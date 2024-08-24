@@ -5,7 +5,7 @@ html, body {
     display: flex;
     justify-content: center; /* Yatayda ortalama */
     align-items: center; /* Dikeyde ortalama */
-    background-color: #f4f4f4; /* Arka plan rengi */
+    background-color: #121212; /* Koyu gri arka plan rengi */
 }
 
 /* Ana container için stil ayarları */
@@ -28,48 +28,53 @@ html, body {
 
 /* Login formu için stil ayarları */
 .login-form {
-    background: #f8d7da; /* Açık kırmızı arka plan rengi */
+    background: #333333; /* Koyu gri arka plan rengi */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px; /* Form genişliği */
     text-align: center; /* İçerik ortalaması */
+    color: #ffffff; /* Beyaz yazı rengi */
 }
 
-/* Giriş formundaki input'lar */
-.login-form input {
-    display: block;
-    width: 100%;
+.username-input{
+   
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid #e50914;
     border-radius: 5px;
+    background-color: #121212;
+    color: #ffffff;
+    box-sizing: border-box;
+    margin-left: 3px;
 }
+.password-input {
 
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    margin-left: 3px;
+    border: 1px solid #e50914;
+    border-radius: 5px;
+    background-color: #121212;
+    color: #ffffff;
+    box-sizing: border-box;
+}
 /* Giriş yap butonu ve misafir girişi butonunun stilleri */
 .login-form button {
     padding: 10px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #1abc9c; /* Yeşil arka plan rengi */
+    background-color: #e50914; /* Parlak kırmızı arka plan rengi */
     color: white;
     cursor: pointer;
     margin-right: 10px;
 }
 
 .login-form button:hover {
-    background-color: #16a085;
-}
-
-/* Misafir Girişi butonuna özel stil */
-.guest-button {
-    background-color: #3498db; /* Mavi arka plan rengi */
-}
-
-.guest-button:hover {
-    background-color: #2980b9; /* Butonun üzerine gelindiğinde mavi arka plan rengi */
+    background-color: #b20710; /* Koyu kırmızı hover efekti */
 }
 
 /* Buton grubunu yatayda ortalamak */
@@ -78,14 +83,19 @@ html, body {
     gap: 10px;
     justify-content: center; /* Butonları yatayda ortalar */
 }
-.button-group button:hover {
-    background-color: #45a049; /* Darker green on hover */
+
+/* Hata mesajı için stil ayarları */
+.error {
+    color: #e50914; /* Kırmızı renk */
+    margin-top: 10px;
 }
+
 /* Çıkış Yap butonuna özel stil */
 .logout-button {
-    background-color: #e50914; /* Kırmızı arka plan rengi */
+    background-color: #e50914; /* Parlak kırmızı arka plan rengi */
+    color: white;
 }
 
 .logout-button:hover {
-    background-color: #c8102e; /* Hover rengini koyulaştır */
+    background-color: #b20710; /* Koyu kırmızı hover efekti */
 }
