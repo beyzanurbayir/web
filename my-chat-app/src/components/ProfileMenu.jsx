@@ -12,6 +12,7 @@ const ProfileMenu = () => {
     const [newUsername, setNewUsername] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [theme, setTheme] = useState('light-theme'); // Tema durumu
+    const [showAlert, setShowAlert] = useState(false); // Uyarı mesajı durumu
 
     const menuRef = useRef(null);  // Menü ve modal için referanslar
     const modalRef = useRef(null);
@@ -33,6 +34,15 @@ const ProfileMenu = () => {
     };
 
     const handleUpdate = () => {
+        if (username === 'Kullanıcı Adı Yok' && password === 'Şifre Yok') {
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 3000); // 3 saniye sonra uyarıyı gizle
+        } else {
+            openModal(); // Güncelleme modalını aç
+        }
+    };
+
+    const applyUpdate = () => {
         localStorage.setItem('username', newUsername);
         localStorage.setItem('password', newPassword);
         setUsername(newUsername);
@@ -90,7 +100,13 @@ const ProfileMenu = () => {
                 <div className={`menu ${theme}`}>
                     <p>Kullanıcı Adı: {username}</p>
                     <p>Şifre: {password}</p>
-                    <button onClick={openModal}>Güncelle</button>
+                    <button onClick={handleUpdate}>Güncelle</button> {/* Güncelleme modalını aç */}
+                </div>
+            )}
+
+            {showAlert && (
+                <div className="alert-message">
+                    Misafir kullanıcılar güncelleme yapamaz
                 </div>
             )}
 
@@ -137,7 +153,7 @@ const ProfileMenu = () => {
                         </form>
                         <div className={`modal-buttons ${theme}`}>
                             <button onClick={closeModal}>İptal</button>
-                            <button onClick={handleUpdate}>Güncelle</button>
+                            <button onClick={applyUpdate}>Güncelle</button> {/* Güncellemeyi uygula */}
                         </div>
                     </div>
                 </div>

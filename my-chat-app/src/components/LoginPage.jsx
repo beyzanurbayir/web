@@ -25,8 +25,9 @@ function LoginPage({ onLogin, onGuestLogin }) {
         const user = users.find((user) => user.username === username && user.password === password);
 
         if (user) {
-            // Giriş başarılı, username'yi localStorage'a kaydet ve login callback
+            // Giriş başarılı, username ve password'ü localStorage'a kaydet ve login callback
             localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
             onLogin();
             navigate('/chat');
         } else {
@@ -44,7 +45,6 @@ function LoginPage({ onLogin, onGuestLogin }) {
                     fontWeight: 'bold'
                 }
             });
-            
         }
     };
 
@@ -52,6 +52,7 @@ function LoginPage({ onLogin, onGuestLogin }) {
     const handleGuestLoginClick = () => {
         // Misafir kullanıcı için username'yi kaldır
         localStorage.removeItem('username');
+        localStorage.removeItem('password'); // Misafir girişinde şifreyi kaldır
         onGuestLogin();
         navigate('/chat');
     };
