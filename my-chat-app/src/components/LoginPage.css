@@ -28,7 +28,7 @@ html, body {
 
 /* Login formu için stil ayarları */
 .login-form {
-    background: #f1f1f1; /* Açık gri arka plan rengi (light-theme) */
+    background: #e0e0e0; /* Açık gri arka plan rengi (light-theme) */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
