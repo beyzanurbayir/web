@@ -1,16 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ProfileMenu.css';
 import profileIcon from '../assets/profile-icon.png'; // Resmi import et
 
 const ProfileMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentUsername, setCurrentUsername] = useState('');
+    const [currentPassword, setCurrentPassword] = useState('');
+    const [newUsername, setNewUsername] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [theme, setTheme] = useState('light-theme'); // Tema durumu
+
+    const menuRef = useRef(null);  // Menü ve modal için referanslar
+    const modalRef = useRef(null);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
+    const openModal = () => {
+        setIsModalOpen(true);
+        setCurrentUsername(username);
+        setCurrentPassword(password);
+        setNewUsername('');
+        setNewPassword('');
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleUpdate = () => {
+        localStorage.setItem('username', newUsername);
+        localStorage.setItem('password', newPassword);
+        setUsername(newUsername);
+        setPassword(newPassword);
+        closeModal();
+    };
+
+    const toggleTheme = () => {
+        const newTheme = (theme === 'light-theme' ? 'dark-theme' : 'light-theme');
+        setTheme(newTheme);
+        document.body.className = newTheme;
+        localStorage.setItem('theme', newTheme);
+    };
+
+    useEffect(() => {
+        // Kullanıcı adı ve şifreyi localStorage'den al
+        const storedUsername = localStorage.getItem('username');
+        const storedPassword = localStorage.getItem('password'); // Şifreyi de saklayın
+
+        setUsername(storedUsername || 'Kullanıcı Adı Yok');
+        setPassword(storedPassword || 'Şifre Yok');
+    }, []);
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.className = savedTheme;
+            setTheme(savedTheme);
+        }
+    }, []);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="profile-menu">
+        <div className={`profile-menu ${theme}`} ref={menuRef}>
             <img
                 src={profileIcon}  // Import edilen resim
                 alt="Profile"
@@ -18,10 +87,59 @@ const ProfileMenu = () => {
                 style={{ cursor: 'pointer' }}  // İkonun tıklanabilir olduğunu belirlemek için
             />
             {isOpen && (
-                <div className="menu">
-                    <p>Kullanıcı Adı: John Doe</p>
-                    <p>E-posta: john.doe@example.com</p>
-                    <button>Çıkış Yap</button>
+                <div className={`menu ${theme}`}>
+                    <p>Kullanıcı Adı: {username}</p>
+                    <p>Şifre: {password}</p>
+                    <button onClick={openModal}>Güncelle</button>
+                </div>
+            )}
+
+            {isModalOpen && (
+                <div className={`modal-overlay ${theme}`} ref={modalRef}>
+                    <div className={`modal-content ${theme}`}>
+                        <div className="modal-header">
+                            <img src={profileIcon} alt="Profile" className="modal-profile-icon" />
+                            <h2>Merhaba!</h2>
+                        </div>
+                        <form className={`modal-form ${theme}`}>
+                            <label>
+                                Mevcut Kullanıcı Adı:
+                                <input
+                                    type="text"
+                                    value={currentUsername}
+                                    disabled
+                                />
+                            </label>
+                            <label>
+                                Yeni Kullanıcı Adı:
+                                <input
+                                    type="text"
+                                    value={newUsername}
+                                    onChange={(e) => setNewUsername(e.target.value)}
+                                />
+                            </label>
+                            <label>
+                                Mevcut Şifre:
+                                <input
+                                    type="password"
+                                    value={currentPassword}
+                                    disabled
+                                />
+                            </label>
+                            <label>
+                                Yeni Şifre:
+                                <input
+                                    type="password"
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                />
+                            </label>
+                        </form>
+                        <div className={`modal-buttons ${theme}`}>
+                            <button onClick={closeModal}>İptal</button>
+                            <button onClick={handleUpdate}>Güncelle</button>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

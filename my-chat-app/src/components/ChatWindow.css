@@ -178,7 +178,7 @@ body.dark-theme .send-button:hover {
     margin-top: 66px;
     top: 0px;
     height: 600px;
-    z-index: 1000;
+    z-index: 1;
     border: 2px solid; /* Çerçeve */
 }
 
