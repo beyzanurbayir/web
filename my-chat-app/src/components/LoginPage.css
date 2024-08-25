@@ -32,12 +32,14 @@ html, body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Form genişliği */
+    width: 360px; /* Form genişliği */
+    height: 360px;
     text-align: center; /* İçerik ortalaması */
     color: #000000; /* Siyah yazı rengi (light-theme) */
 }
 
 .username-input {
+    margin-top: 23px; /* Üstte daha fazla boşluk bırakır */
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
@@ -46,10 +48,12 @@ html, body {
     margin-left: 7px;
     background-color: #ffffff; /* Beyaz arka plan (light-theme) */
     color: #000000; /* Siyah yazı rengi (light-theme) */
-    width: 550px;
+    width: auto;
+
 }
 
 .password-input {
+    margin-top: 23px; /* Üstte daha fazla boşluk bırakır */
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
@@ -58,12 +62,13 @@ html, body {
     background-color: #ffffff; /* Beyaz arka plan (light-theme) */
     color: #000000; /* Siyah yazı rengi (light-theme) */
     margin-left: 1px;
-    width: 140px;
+    width: 200px;
 }
 
 /* Giriş yap butonu ve misafir girişi butonunun stilleri */
 .login-form button {
-    padding: 10px;
+    margin-top: 23px; /* Üstte daha fazla boşluk bırakır */
+    padding: 14px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
