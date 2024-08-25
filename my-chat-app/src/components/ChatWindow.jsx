@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { fetchMovieData } from './api';  // API istek fonksiyonunu import edin
+import { fetchMovieData } from './api'; 
 import './ChatWindow.css';
 
 const ChatWindow = () => {
     const [messages, setMessages] = useState(() => {
-        // Kullanıcı adı ve misafir kontrolü
         const username = localStorage.getItem('username');
-        const savedMessages = localStorage.getItem(`chatMessages_${username}`);
+        const storage = username ? localStorage : sessionStorage;
+        const savedMessages = username ? storage.getItem(`chatMessages_${username}`) : storage.getItem('chatMessages_guest');
         return savedMessages ? JSON.parse(savedMessages) : [
             { text: "Merhaba, lütfen bir film ismi giriniz", sender: "bot" }
         ];
@@ -14,18 +14,15 @@ const ChatWindow = () => {
 
     const [input, setInput] = useState('');
     const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(null); // Tıklanan filmi takip eden state
+    const [selectedMovie, setSelectedMovie] = useState(null); 
 
-    // Scroll ref
     const messagesEndRef = useRef(null);
 
-    // Scroll to bottom on new message
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
     useEffect(() => {
-        // API çağrısı yaparak film isimlerini alın
         fetch('http://localhost:5090/film/names')
             .then(response => response.json())
             .then(data => setMovies(data))
@@ -38,9 +35,10 @@ const ChatWindow = () => {
             setMessages(newMessages);
             setInput('');
 
-            // Kullanıcı adı ve misafir kontrolü
             const username = localStorage.getItem('username');
-            localStorage.setItem(`chatMessages_${username}`, JSON.stringify(newMessages));
+            const storage = username ? localStorage : sessionStorage;
+            const key = username ? `chatMessages_${username}` : `chatMessages_guest`;
+            storage.setItem(key, JSON.stringify(newMessages));
 
             try {
                 const movieData = await fetchMovieData(input);
@@ -53,33 +51,32 @@ const ChatWindow = () => {
                 const botMessages = [...newMessages, { sender: 'bot', text: botResponse }];
                 setMessages(botMessages);
 
-                localStorage.setItem(`chatMessages_${username}`, JSON.stringify(botMessages));
+                storage.setItem(key, JSON.stringify(botMessages));
             } catch (error) {
                 const botErrorMessage = `Üzgünüm, aradığınız film bulunamadı. Lütfen film adını kontrol edip tekrar deneyin.`;
                 const botMessages = [...newMessages, { sender: 'bot', text: botErrorMessage }];
                 setMessages(botMessages);
 
-                localStorage.setItem(`chatMessages_${username}`, JSON.stringify(botMessages));
+                storage.setItem(key, JSON.stringify(botMessages));
             }
         }
     };
 
     const handleButtonClick = (movieName) => {
         if (selectedMovie === movieName) {
-            // Aynı filme tekrar tıklandı, input alanından geri al
             setInput('');
             setSelectedMovie(null);
         } else {
-            // Farklı bir filme tıklandı, input alanına yerleştir
             setInput(movieName);
             setSelectedMovie(movieName);
         }
     };
 
     useEffect(() => {
-        // Kullanıcı adı ve misafir kontrolü
         const username = localStorage.getItem('username');
-        localStorage.setItem(`chatMessages_${username}`, JSON.stringify(messages));
+        const storage = username ? localStorage : sessionStorage;
+        const key = username ? `chatMessages_${username}` : `chatMessages_guest`;
+        storage.setItem(key, JSON.stringify(messages));
     }, [messages]);
 
     return (
@@ -94,7 +91,7 @@ const ChatWindow = () => {
                             {msg.text}
                         </div>
                     ))}
-                    <div ref={messagesEndRef} /> {/* Scroll reference */}
+                    <div ref={messagesEndRef} /> 
                 </div>
                 <div className="input-container">
                     <input

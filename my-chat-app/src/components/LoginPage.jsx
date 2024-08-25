@@ -1,33 +1,24 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
-import 'react-toastify/dist/ReactToastify.css'; // Toastify CSS
+import { toast, ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 import './LoginPage.css';
 
 function LoginPage({ onLogin, onGuestLogin }) {
-
-    // Kullanıcı adı ve şifre için state tanımları
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
     const navigate = useNavigate();
 
-    // Kullanıcı adı ve şifreleri içeren basit bir kullanıcı listesi
     const users = [
         { username: 'admin', password: '123' },
         { username: 'user1', password: 'pass1' },
         { username: 'user2', password: 'pass2' }
     ];
 
-    // Giriş yapma fonksiyonu
     const handleLogin = () => {
-        // localStorage'dan güncel kullanıcı adı ve şifreyi al
-        const storedUsername = localStorage.getItem('username');
-        const storedPassword = localStorage.getItem('password');
         const user = users.find((user) => user.username === username && user.password === password);
-
-        if (user || (username === storedUsername && password === storedPassword)) {
+        if (user) {
             localStorage.setItem('username', username);
             localStorage.setItem('password', password);
             onLogin();
@@ -49,23 +40,22 @@ function LoginPage({ onLogin, onGuestLogin }) {
         }
     };
 
-    // Misafir girişi fonksiyonu
     const handleGuestLoginClick = () => {
-        // Misafir kullanıcı için username'yi kaldır
+        sessionStorage.clear(); // Misafir Girişi için mesajları temizle
         localStorage.removeItem('username');
-        localStorage.removeItem('password'); // Misafir girişinde şifreyi kaldır
+        localStorage.removeItem('password');
         onGuestLogin();
         navigate('/chat');
     };
 
     return (
         <div className="login-page">
-            <ToastContainer /> {/* Bu bileşeni ekleyin */}
+            <ToastContainer />
             <div className="login-form">
                 <h2>Giriş Yap</h2>
                 <input 
                     type="text" 
-                    className="form-input username-input" // Özel sınıf adı
+                    className="form-input username-input" 
                     placeholder="Kullanıcı Adı" 
                     value={username} 
                     onChange={(e) => setUsername(e.target.value)} 
@@ -73,7 +63,7 @@ function LoginPage({ onLogin, onGuestLogin }) {
 
                 <input 
                     type="password" 
-                    className="form-input password-input" // Özel sınıf adı
+                    className="form-input password-input" 
                     placeholder="Şifre" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
