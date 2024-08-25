@@ -22,16 +22,17 @@ function LoginPage({ onLogin, onGuestLogin }) {
 
     // Giriş yapma fonksiyonu
     const handleLogin = () => {
+        // localStorage'dan güncel kullanıcı adı ve şifreyi al
+        const storedUsername = localStorage.getItem('username');
+        const storedPassword = localStorage.getItem('password');
         const user = users.find((user) => user.username === username && user.password === password);
 
-        if (user) {
-            // Giriş başarılı, username ve password'ü localStorage'a kaydet ve login callback
+        if (user || (username === storedUsername && password === storedPassword)) {
             localStorage.setItem('username', username);
             localStorage.setItem('password', password);
             onLogin();
             navigate('/chat');
         } else {
-            // Hatalı giriş, pop-up hata mesajı göster
             toast.error('Kullanıcı adı veya şifre hatalı!', {
                 position: "top-center",
                 autoClose: 3000,
