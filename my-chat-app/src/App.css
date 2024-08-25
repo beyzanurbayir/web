@@ -88,3 +88,34 @@ body, html, #root {
   width: 100%;
   font-family: Arial, sans-serif;
 }
+
+/* Temalar için genel ayarlar */
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Buton renkleri */
+.app-container.light-theme .sidebar-button {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.app-container.dark-theme .sidebar-button {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* ChatWindow arka plan renkleri */
+.app-container.light-theme .chat-window {
+  background-color: #ffffff;
+}
+
+.app-container.dark-theme .chat-window {
+  background-color: #222222;
+}

@@ -16,8 +16,19 @@ const Sidebar = () => {
     const handleThemeChange = () => {
         const newTheme = !isDarkTheme;
         setIsDarkTheme(newTheme);
-        document.body.className = newTheme ? 'dark-theme' : 'default-theme';
+        document.body.className = newTheme ? 'dark-theme' : 'light-theme';
+        localStorage.setItem('theme', newTheme ? 'dark-theme' : 'light-theme');
     };
+    
+    // Sayfa yüklendiğinde temayı yerel depolamadan al
+    React.useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.className = savedTheme;
+            setIsDarkTheme(savedTheme === 'dark-theme');
+        }
+    }, []);
+    
 
     return (
         <div className="sidebar">

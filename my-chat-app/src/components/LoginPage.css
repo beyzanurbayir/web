@@ -5,7 +5,7 @@ html, body {
     display: flex;
     justify-content: center; /* Yatayda ortalama */
     align-items: center; /* Dikeyde ortalama */
-    background-color: #121212; /* Koyu gri arka plan rengi */
+    background-color: #ffffff; /* Beyaz arka plan rengi (light-theme) */
 }
 
 /* Ana container için stil ayarları */
@@ -28,37 +28,37 @@ html, body {
 
 /* Login formu için stil ayarları */
 .login-form {
-    background: #333333; /* Koyu gri arka plan rengi */
+    background: #f1f1f1; /* Açık gri arka plan rengi (light-theme) */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px; /* Form genişliği */
     text-align: center; /* İçerik ortalaması */
-    color: #ffffff; /* Beyaz yazı rengi */
+    color: #000000; /* Siyah yazı rengi (light-theme) */
 }
 
-.username-input{
-   
+.username-input {
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #e50914;
+    border: 1px solid #e50914; /* Parlak kırmızı border */
     border-radius: 5px;
     margin-left: 7px;
-    background-color: #121212;
-    color: #ffffff;
-    width: 550px; 
+    background-color: #ffffff; /* Beyaz arka plan (light-theme) */
+    color: #000000; /* Siyah yazı rengi (light-theme) */
+    width: 550px;
 }
+
 .password-input {
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #e50914;
+    border: 1px solid #e50914; /* Parlak kırmızı border */
     border-radius: 5px;
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #ffffff; /* Beyaz arka plan (light-theme) */
+    color: #000000; /* Siyah yazı rengi (light-theme) */
     margin-left: 1px;
-    width: 140px; 
+    width: 140px;
 }
 
 /* Giriş yap butonu ve misafir girişi butonunun stilleri */

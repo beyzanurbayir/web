@@ -1,51 +1,51 @@
 /* Tema Renkleri */
 :root {
-    --light-bg: #ffffff;
-    --light-text: #000000;
-    --dark-bg: #000000;
-    --dark-text: #ffffff;
-    --sidebar-bg-light: #f0f0f0;
-    --sidebar-bg-dark: #121212;
-    --sidebar-text-light: #000000;
-    --sidebar-text-dark: #ffffff;
-    --switch-bg-light: #ccc;
-    --switch-bg-dark: #555;
-    --switch-slider-bg: #ffffff;
-    --switch-slider-active-bg: #0d6efd;
+    --light-bg: #ffffff; /* Açık tema arka plan rengi */
+    --light-text: #000000; /* Açık tema metin rengi */
+    --dark-bg: #000000; /* Koyu tema arka plan rengi */
+    --dark-text: #ffffff; /* Koyu tema metin rengi */
+    --sidebar-bg-light: #f0f0f0; /* Açık tema yan menü arka plan rengi */
+    --sidebar-bg-dark: #121212; /* Koyu tema yan menü arka plan rengi */
+    --sidebar-text-light: #000000; /* Açık tema yan menü metin rengi */
+    --sidebar-text-dark: #ffffff; /* Koyu tema yan menü metin rengi */
+    --switch-bg-light: #ccc; /* Açık tema anahtar arka plan rengi */
+    --switch-bg-dark: #555; /* Koyu tema anahtar arka plan rengi */
+    --switch-slider-bg: #ffffff; /* Anahtar kaydırıcısının arka plan rengi */
+    --switch-slider-active-bg: #0d6efd; /* Anahtar seçili olduğunda kaydırıcının arka plan rengi */
 }
 
-body.default-theme {
-    background-color: var(--light-bg);
-    color: var(--light-text);
+body.light-theme {
+    background-color: var(--light-bg); /* Açık tema arka plan rengi */
+    color: var(--light-text); /* Açık tema metin rengi */
 }
 
 body.dark-theme {
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
+    background-color: var(--dark-bg); /* Koyu tema arka plan rengi */
+    color: var(--dark-text); /* Koyu tema metin rengi */
 }
 
-.sidebar.default-theme {
-    background-color: var(--sidebar-bg-light);
-    color: var(--sidebar-text-light);
+.sidebar.light-theme {
+    background-color: var(--sidebar-bg-light); /* Açık tema yan menü arka plan rengi */
+    color: var(--sidebar-text-light); /* Açık tema yan menü metin rengi */
 }
 
 .sidebar.dark-theme {
-    background-color: var(--sidebar-bg-dark);
-    color: var(--sidebar-text-dark);
+    background-color: var(--sidebar-bg-dark); /* Koyu tema yan menü arka plan rengi */
+    color: var(--sidebar-text-dark); /* Koyu tema yan menü metin rengi */
 }
 
 .switch .slider {
-    background-color: var(--switch-bg-light); /* Varsayılan tema için arka plan rengi */
+    background-color: var(--switch-bg-light); /* Açık tema için anahtar arka plan rengi */
 }
 
 body.dark-theme .switch .slider {
-    background-color: var(--switch-bg-dark); /* Koyu tema için arka plan rengi */
+    background-color: var(--switch-bg-dark); /* Koyu tema için anahtar arka plan rengi */
 }
 
 .switch .slider:before {
-    background-color: var(--switch-slider-bg);
+    background-color: var(--switch-slider-bg); /* Kaydırıcının arka plan rengi */
 }
 
 input:checked + .slider {
-    background-color: var(--switch-slider-active-bg); /* Seçili olduğunda arka plan rengi */
+    background-color: var(--switch-slider-active-bg); /* Seçili olduğunda anahtar arka plan rengi */
 }

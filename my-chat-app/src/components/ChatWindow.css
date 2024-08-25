@@ -1,14 +1,3 @@
-/* Temalar */
-body.default-theme {
-    background-color: #ffffff; /* Aydınlık tema arka plan */
-    color: #000000; /* Siyah yazı rengi */
-}
-
-body.dark-theme {
-    background-color: #121212; /* Koyu tema arka plan */
-    color: #ffffff; /* Beyaz yazı rengi */
-}
-
 /* Chat Window */
 .chat-window {
     display: flex;
@@ -20,7 +9,18 @@ body.dark-theme {
     margin-right: 250px;
 }
 
-body.default-theme .chat-window {
+/* Temalar */
+body.light-theme {
+    background-color: #ffffff; /* Aydınlık tema arka plan */
+    color: #000000; /* Siyah yazı rengi */
+}
+
+body.dark-theme {
+    background-color: #121212; /* Koyu tema arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
+}
+
+body.light-theme .chat-window {
     background-color: #f1f1f1; /* Açık gri */
 }
 
@@ -41,7 +41,7 @@ body.dark-theme .chat-window {
     margin: auto; /* Yatayda ortalamak için */
 }
 
-body.default-theme .chat-area {
+body.light-theme .chat-area {
     background-color: #ffffff; /* Beyaz */
 }
 
@@ -63,7 +63,7 @@ body.dark-theme .chat-area {
     width: 12px; /* Scrollbar genişliği */
 }
 
-body.default-theme .messages::-webkit-scrollbar {
+body.light-theme .messages::-webkit-scrollbar {
     background-color: #dcdcdc; /* Açık gri scrollbar arka planı */
 }
 
@@ -102,7 +102,7 @@ body.dark-theme .messages::-webkit-scrollbar {
     padding: 10px;
 }
 
-body.default-theme .message-box.bot {
+body.light-theme .message-box.bot {
     background-color: #e0e0e0; /* Daha koyu açık gri */
 }
 
@@ -127,7 +127,7 @@ input[type="text"] {
     margin-right: 10px;
 }
 
-body.default-theme input[type="text"] {
+body.light-theme input[type="text"] {
     border: 1px solid #f44336; /* Kırmızı */
 }
 
@@ -147,7 +147,7 @@ body.dark-theme input[type="text"] {
     cursor: pointer;
 }
 
-body.default-theme .send-button {
+body.light-theme .send-button {
     background-color: #f44336; /* Kırmızı */
 }
 
@@ -159,7 +159,7 @@ body.dark-theme .send-button {
     background-color: #d32f2f; /* Daha koyu kırmızı */
 }
 
-body.default-theme .send-button:hover {
+body.light-theme .send-button:hover {
     background-color: #d32f2f; /* Daha koyu kırmızı */
 }
 
@@ -182,7 +182,7 @@ body.dark-theme .send-button:hover {
     border: 2px solid; /* Çerçeve */
 }
 
-body.default-theme .movie-list {
+body.light-theme .movie-list {
     background-color: #ffffff; /* Beyaz */
     border-color: #000000; /* Siyah */
 }
@@ -197,10 +197,9 @@ body.dark-theme .movie-list {
     font-size: 24px; /* Daha büyük font boyutu */
     font-weight: bold; /* Kalın metin */
     margin: 20px 0; /* Üst ve alt boşluk */
-    
 }
 
-body.default-theme .movie-list-title {
+body.light-theme .movie-list-title {
     color: #000000; /* Siyah */
     border-bottom: 2px solid #000000; /*alt çizgi */
 }
@@ -225,7 +224,7 @@ body.dark-theme .movie-list-title {
     cursor: pointer;
 }
 
-body.default-theme .movie-list button {
+body.light-theme .movie-list button {
     background-color: #f44336; /* Kırmızı */
 }
 
@@ -237,7 +236,7 @@ body.dark-theme .movie-list button {
     background-color: #d32f2f; /* Daha koyu kırmızı */
 }
 
-body.default-theme .movie-list button:hover {
+body.light-theme .movie-list button:hover {
     background-color: #d32f2f; /* Daha koyu kırmızı */
 }
 

@@ -6,7 +6,7 @@
 /* Sidebar stili */
 .sidebar {
     width: 300px; /* Sidebar genişliğini artırdık */
-    color: var(--sidebar-text-light); /* Varsayılan tema için metin rengi */
+    color: var(--sidebar-text-light); /* Açık tema için metin rengi */
     padding: 20px;
     position: fixed;
     top: 0;
@@ -21,33 +21,31 @@
 }
 
 /* Aydınlık tema için çerçeve rengi siyah */
-.default-theme .sidebar {
-  border-color: #000000; /* Siyah çerçeve */
+.light-theme .sidebar {
+    border-color: #000000; /* Siyah çerçeve */
 }
 
 /* Karanlık tema için çerçeve rengi beyaz */
 .dark-theme .sidebar {
-  border-color: #ffffff; /* Beyaz çerçeve */
+    border-color: #ffffff; /* Beyaz çerçeve */
 }
 
 /* Aydınlık tema için buton arka plan rengi */
-.default-theme .sidebar h2 {
-  background-color: #e0e0e0; /* Aydınlık tema için buton rengi */
+.light-theme .sidebar h2 {
+    background-color: #e0e0e0; /* Aydınlık tema için buton rengi */
 }
 
 /* Karanlık tema için buton arka plan rengi */
 .dark-theme .sidebar h2 {
-  background-color: #404040; /* Karanlık tema için buton rengi */
-  color: #ffffff; /* Beyaz metin */
+    background-color: #404040; /* Karanlık tema için buton rengi */
+    color: #ffffff; /* Beyaz metin */
 }
 
-/* Sidebar.css dosyanıza ekleyin */
 .logo {
-  width: 200px; /* Genişliği ayarlayın */
-  height: auto; /* Oranları koruyarak yüksekliği otomatik olarak ayarlar */
-  margin-bottom: 20px; /* Resim ile altındaki içerik arasındaki boşluk */
+    width: 200px; /* Genişliği ayarlayın */
+    height: auto; /* Oranları koruyarak yüksekliği otomatik olarak ayarlar */
+    margin-bottom: 20px; /* Resim ile altındaki içerik arasındaki boşluk */
 }
-
 
 .sidebar h2 {
     margin-bottom: 20px;
@@ -99,7 +97,7 @@
     cursor: pointer;
     width: 60px;
     height: 34px;
-    background-color: var(--switch-bg-light); /* Varsayılan tema için arka plan rengi */
+    background-color: var(--switch-bg-light); /* Açık tema için arka plan rengi */
     transition: .4s;
     border-radius: 34px;
 }
@@ -112,12 +110,12 @@
     border-radius: 50%;
     left: 4px;
     bottom: 4px;
-    background-color: var(--switch-slider-bg);
+    background-color: var(--switch-slider-bg); /* Kaydırıcının arka plan rengi */
     transition: .4s;
 }
 
 input:checked + .slider {
-    background-color: var(--switch-slider-active-bg); /* Seçili olduğunda arka plan rengi */
+    background-color: var(--switch-slider-active-bg); /* Seçili olduğunda anahtar arka plan rengi */
 }
 
 input:checked + .slider:before {

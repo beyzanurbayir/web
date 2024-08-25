@@ -33,13 +33,18 @@ function LoginPage({ onLogin, onGuestLogin }) {
             // Hatalı giriş, pop-up hata mesajı göster
             toast.error('Kullanıcı adı veya şifre hatalı!', {
                 position: "top-center",
-                autoClose: 3000, // 3 saniye sonra kapanır
+                autoClose: 3000,
                 hideProgressBar: true,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
-                progress: undefined,
+                style: {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                    fontWeight: 'bold'
+                }
             });
+            
         }
     };
 

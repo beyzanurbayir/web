@@ -52,31 +52,31 @@ button:hover {
 }
 
 /* Aydınlık tema için stil */
-.default-theme .film-ekle-container {
+.light-theme .film-ekle-container {
     border-color: #dddddd; /* Açık gri sınır */
     background-color: #f5f5f5; /* Açık gri arka plan */
 }
 
-.default-theme .film-ekle-container h1 {
+.light-theme .film-ekle-container h1 {
     color: #333333; /* Koyu gri başlık rengi */
 }
 
-.default-theme .form-group label {
+.light-theme .form-group label {
     color: #333333; /* Koyu gri etiket rengi */
 }
 
-.default-theme .form-group input {
+.light-theme .form-group input {
     border: 1px solid #333333; /* Koyu gri sınır */
     background-color: #ffffff; /* Beyaz arka plan */
     color: #333333; /* Koyu gri yazı rengi */
 }
 
-.default-theme button {
+.light-theme button {
     background-color: #f44336; /* Koyu gri arka plan */
     color: white;
 }
 
-.default-theme button:hover {
+.light-theme button:hover {
     background-color: #d32f2f; /* Daha koyu gri hover efekti */
 }
 
