@@ -13,6 +13,7 @@ const ProfileMenu = () => {
     const [newPassword, setNewPassword] = useState('');
     const [theme, setTheme] = useState('light-theme'); // Tema durumu
     const [showAlert, setShowAlert] = useState(false); // Uyarı mesajı durumu
+    const [showPassword, setShowPassword] = useState(false); // Şifreyi göster/gizle durumu
 
     const menuRef = useRef(null);  // Menü ve modal için referanslar
     const modalRef = useRef(null);
@@ -57,6 +58,10 @@ const ProfileMenu = () => {
         localStorage.setItem('theme', newTheme);
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     useEffect(() => {
         // Kullanıcı adı ve şifreyi localStorage'den al
         const storedUsername = localStorage.getItem('username');
@@ -96,13 +101,13 @@ const ProfileMenu = () => {
                 onClick={toggleMenu}
                 style={{ cursor: 'pointer' }}  // İkonun tıklanabilir olduğunu belirlemek için
             />
-            {isOpen && (
-                <div className={`menu ${theme}`}>
-                    <p>Kullanıcı Adı: {username}</p>
-                    <p>Şifre: {password}</p>
-                    <button onClick={handleUpdate}>Güncelle</button> {/* Güncelleme modalını aç */}
-                </div>
-            )}
+         {isOpen && (
+            <div className={`menu ${theme}`}>
+                <p>Kullanıcı Adı: {username}</p>
+                <p>Şifre: {password.replace(/./g, '*')}</p>
+                <button onClick={handleUpdate}>Güncelle</button> {/* Güncelleme modalını aç */}
+            </div>
+        )}
 
             {showAlert && (
                 <div className="alert-message">
@@ -137,7 +142,7 @@ const ProfileMenu = () => {
                             <label>
                                 Mevcut Şifre:
                                 <input
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     value={currentPassword}
                                     disabled
                                 />
@@ -145,10 +150,11 @@ const ProfileMenu = () => {
                             <label>
                                 Yeni Şifre:
                                 <input
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
                                 />
+
                             </label>
                         </form>
                         <div className={`modal-buttons ${theme}`}>
