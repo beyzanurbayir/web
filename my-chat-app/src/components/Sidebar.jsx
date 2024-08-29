@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
-import DIGITURKLOGO from '../assets/DIGITURKLOGO.png'; // Resim dosyasını import ettik
+import DIGITURKLOGO from '../assets/DIGITURKLOGO.png'; 
 import sunIcon from '../assets/sun.png'; // Güneş simgesi
 import moonIcon from '../assets/moon.png'; // Ay simgesi
 

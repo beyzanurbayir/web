@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ProfileMenu.css';
-import profileIcon from '../assets/profile-icon.png'; // Resmi import et
+import profileIcon from '../assets/profile-icon.png'; 
 
 const ProfileMenu = () => {
     const [isOpen, setIsOpen] = useState(false);

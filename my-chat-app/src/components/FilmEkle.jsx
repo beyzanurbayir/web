@@ -15,7 +15,7 @@ const FilmEkle = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const navigate = useNavigate(); // useNavigate kancasını kullanarak yönlendirme yapacağız
+    const navigate = useNavigate(); // useNavigate kancasını kullanarak yönlendirme yapılır
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,7 +27,7 @@ const FilmEkle = () => {
         setSuccessMessage('');
         setErrorMessage('');
 
-        // ID'yi göndermeden formData'yı post edin
+        // ID'yi göndermeden formData import edilir
         const result = await FilmService.addFilm(formData);
 
         if (result.success) {

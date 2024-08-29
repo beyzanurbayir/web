@@ -41,7 +41,7 @@ function LoginPage({ onLogin, onGuestLogin }) {
     };
 
     const handleGuestLoginClick = () => {
-        sessionStorage.clear(); // Misafir Girişi için mesajları temizle
+        sessionStorage.clear(); // Misafir Girişi için mesajları temizler
         localStorage.removeItem('username');
         localStorage.removeItem('password');
         onGuestLogin();
